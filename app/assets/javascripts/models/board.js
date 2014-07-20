@@ -9,12 +9,9 @@ Trello.Models.Board = Backbone.Model.extend({
   
   parse: function (payload) {
     if (payload.lists) {
-      // debugger
       this.lists().set(payload.lists, { parse: true });
-
       delete payload.lists;
     }
-
     return payload;
   }
 });

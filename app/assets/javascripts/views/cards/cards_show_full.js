@@ -3,9 +3,9 @@ Trello.Views.CardsShowFullView = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);
-    // this.listenTo(this.model.items(), "sync", this.render);
-    // this.listenTo(this.model.items(), "add", this.addItem);
-    // this.listenTo(this.model.items(), "remove", this.removeItem);
+    this.listenTo(this.model.items(), "sync", this.render);
+    this.listenTo(this.model.items(), "add", this.addItem);
+    this.listenTo(this.model.items(), "remove", this.removeItem);
     
     var itemNewView =
       new Trello.Views.ItemNewView({ model: this.model });

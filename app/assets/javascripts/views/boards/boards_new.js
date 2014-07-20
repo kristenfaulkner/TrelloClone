@@ -1,7 +1,6 @@
 Trello.Views.BoardsNewView = Backbone.View.extend({
   template: JST["boards/new"],
 
-  
   events: {
     "submit form": "submit"
   },
@@ -22,7 +21,8 @@ Trello.Views.BoardsNewView = Backbone.View.extend({
     newBoard.save({}, {
       success: function () {
         Trello.Collections.boards.add(newBoard);
-        Backbone.history.navigate("/", { trigger: true });
+        var path = "#/boards/" + newBoard.get('id');
+        Backbone.history.navigate(path, { trigger: true });
       }
     });
   }

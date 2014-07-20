@@ -34,7 +34,7 @@ Trello.Routers.TrelloRouter = Backbone.Router.extend({
       this.currentView.remove();
     }
 
-    $("body").html(newView.render().$el);
+    $("#main").html(newView.render().$el);
 
     this.currentView = newView;
   }

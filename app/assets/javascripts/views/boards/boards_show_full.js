@@ -2,7 +2,6 @@ Trello.Views.BoardsShowFullView = Backbone.CompositeView.extend({
   template: JST["boards/showFull"],
 
   initialize: function () {
-    // this.model.lists().fetch();
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model.lists(), "sync", this.render);
     this.listenTo(this.model.lists(), "add", this.addList);
