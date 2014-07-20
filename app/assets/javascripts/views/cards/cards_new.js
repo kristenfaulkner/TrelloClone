@@ -1,11 +1,11 @@
 Trello.Views.CardsNewView = Backbone.CompositeView.extend({
-  template: JST["cards/new"],
+  template: JST["cards/form"],
+  checkItemTemplate: JST["cards/checklistItem"],
   // checkItemTemplate: JST["cards/checklistItem"],
 
   events: {
-    "submit form": "submit"
-  //   "click button.add-card-submit": "submit",
-  //   "click button.add-check-item" : "addCheckRow"
+    "submit form": "submit",
+    "click #addMoreChecks" : "addChecks"
   },
 
   render: function () {
@@ -15,25 +15,25 @@ Trello.Views.CardsNewView = Backbone.CompositeView.extend({
     return this;
   },
 
-  // addCheckRow: function(event) {
-  //   event.preventDefault();
-  //   var view = this;
-  //   debugger
-  //   var newItem = this.checkItemTemplate();
-  //   this.$('.add-check-item').append("hello");
-  // },
-  //
-  
-  submit: function (event) {
-    var cardView = this;
+  addChecks: function(event) {
     event.preventDefault();
+    var view = this;
+    var newItem = this.checkItemTemplate();
+    this.$('#card-checklist').append(newItem);
+  },
+
+
+  submit: function (event) {
+    event.preventDefault();
+    var cardView = this;
     var params = $(event.currentTarget).serializeJSON();
     var newCard = new Trello.Models.Card(params["card"]);
-    newCard.set('list_id', this.model.get('id'));
+    newCard.set('list_id', cardView.model.get('id'));
     newCard.save({}, {
       success: function () {
         cardView.model.cards().add(newCard);
-        //close the modal
+        cardView.$('#myModal').modal('hide');
+        $('.modal-backdrop').remove();
       }
     });
   }

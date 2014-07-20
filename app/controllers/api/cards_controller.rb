@@ -26,6 +26,11 @@ module Api
     def current_board
       current_list.board
     end
+    
+    def destroy
+      @card = Card.find(params[:id])
+      @card.destroy()
+    end
 
     def card_params
       params.require(:card).permit(:title, :list_id)

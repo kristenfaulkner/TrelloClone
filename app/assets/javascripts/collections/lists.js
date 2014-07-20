@@ -3,6 +3,9 @@ Trello.Collections.BoardLists = Backbone.Collection.extend({
   tagName: "ul",
   url: "api/lists",
 
+  comparator: function(list) {
+    return list.get('ord');
+  },
 
   getOrFetch: function (id) {
     var lists = this;

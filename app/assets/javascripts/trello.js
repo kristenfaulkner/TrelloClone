@@ -6,6 +6,7 @@ window.Trello = {
   initialize: function() {
     Trello.Collections.boards = new Trello.Collections.Boards();
     Trello.Collections.lists = new Trello.Collections.BoardLists();
+    Trello.Collections.cards = new Trello.Collections.Cards();
     new Trello.Routers.TrelloRouter();
     Backbone.history.start();
   }
@@ -48,22 +49,23 @@ Backbone.CompositeView = Backbone.View.extend({
       this._subviews[selector] = this._subviews[selector] || [];
       return this._subviews[selector];
     }
-  }
-});
+  },
 
-//   remove: function () {
-//     Backbone.View.prototype.remove.call(this);
-//     _(this.subviews()).each(function (subviews) {
-//       _(subviews).each(function (subview) { subview.remove(); });
-//     });
-//   },
-//
-//   removeSubview: function (selector, subview) {
-//     subview.remove();
-//
-//     var subviews = this.subviews(selector);
-//     subviews.splice(subviews.indexOf(subview), 1);
-//   },
+  remove: function () {
+    Backbone.View.prototype.remove.call(this);
+    _(this.subviews()).each(function (subviews) {
+      _(subviews).each(function (subview) { subview.remove(); });
+    });
+  },
+
+  removeSubview: function (selector, subview) {
+    subview.remove();
+
+    var subviews = this.subviews(selector);
+    subviews.splice(subviews.indexOf(subview), 1);
+  }
+
+  });
 
 
 

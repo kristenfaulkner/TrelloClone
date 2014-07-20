@@ -1,0 +1,174 @@
+<div class="new-card-form">
+  <div class="modal fade" 
+    id="myModal" 
+    tabindex="-1" 
+    role="dialog" 
+    aria-labelledby="myModalLabel" 
+    aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">   
+      <!--Modal Header-->
+      <div class="modal-header">
+        <button type="button" 
+        class="close" 
+        data-dismiss="modal">
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span>
+      </button>
+      <h3 class="modal-title" id="myModalLabel">Add a new Card</h3>
+    </div>      
+    <!--Modal Body-->
+    <div class="modal-body">
+      <!-- Start of Form-->
+      <form role="form">
+            
+        <!--Top Row-->
+        <div class="row">
+            
+          <!--Get Title-->
+          <div class="col-lg-6 form-group">
+            <label for="card-title">Title</label>
+            <input type="text" 
+            class="form-control" 
+            name="card[title]" 
+            Placeholder="Card name..."
+            id="card-title">
+          </div>
+            
+            
+          <!--Dropdown Menu-->
+
+          <!-- <div class="dropdown form-group">
+            <button class="btn btn-default dropdown-toggle"
+            type="button"
+            id="dropdownMenu1"
+            data-toggle="dropdown">
+            Dropdown
+            <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu"
+            role="menu"
+            aria-labelledby="dropdownMenu1">
+            <li role="presentation">
+            <a role="menuitem"
+            tabindex="-1"
+            href="#">Add a Due Date
+            </a>
+            </li>
+            <li role="presentation">
+            <a role="menuitem"
+            tabindex="-1"
+            href="#">Add Item
+            </a>
+            </li>
+            <li role="presentation">
+            <a role="menuitem"
+            tabindex="-1"
+            href="#">Add Member
+            </a>
+            </li>
+            <li role="presentation"
+            class="divider">
+            </li>
+            <li role="presentation">
+            <a role="menuitem"
+            tabindex="-1"
+            href="#">Add People
+            </a>
+            </li>
+            </ul>
+            </div>
+            </div>
+            </div>  --><!-- end of top row-->
+
+
+  
+            <!-- Order -->
+            <div class="row">       
+              <div class="col-lg-2 form-group">
+                <label for="card-order">Order</label>
+                <input type="number"
+                min="0" max="100" step="1"
+                Placeholder="1"
+                class="form-control" 
+                name="card[order]" 
+                id="card-order">
+              </div>
+            </div>
+        
+  
+            <!-- Upload a file--> 
+            <div class="form-group row col-lg-4">
+              <label for="inputFile">
+                Upload a file
+              </label>
+              <input type="file" id="inputFile">
+            </div>  
+         
+            <br><br>
+            <!--Checkbox in the model-->
+            <div id="card-checklist" class="col-lg-12 form-group">
+              <label for="card-checklist">Create Checklist</label>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <input type="checkbox">
+                    </span>
+                    <input type="text" 
+                    class="form-control" 
+                    Placeholder="Checklist item 1..."
+                    name="items[checklist][]">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <input type="checkbox">
+                    </span>
+                    <input type="text" class="form-control" Placeholder="Checklist item 2...">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <input type="checkbox">
+                    </span>
+                    <input type="text" class="form-control" Placeholder="Checklist item 3...">
+                  </div>
+                </div>
+              </div>
+  
+            </div>
+            <br>
+            <div class="col-lg-6">
+              <button class="add-check-item btn" 
+              id="addMoreChecks">Add More Items to Checklist
+            </button>
+          </div>
+
+          <!--Footer-->
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+        
+

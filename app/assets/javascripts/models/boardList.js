@@ -1,7 +1,10 @@
 Trello.Models.BoardList = Backbone.Model.extend({
   urlRoot: "api/lists",
   
-
+  board: function() {
+    return this.get('board_id');
+  },
+  
   cards: function () {
     this._cards = this._cards ||
       new Trello.Collections.Cards([], { list: this });

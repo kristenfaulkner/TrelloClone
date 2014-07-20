@@ -14,6 +14,10 @@ Trello.Views.CardsShowFullView = Backbone.CompositeView.extend({
     this.model.items().each(this.addItem.bind(this));
   },
   
+  events: {
+        "click button.delete-card": "deleteCard",
+  },
+  
   render: function () {
     var view = this;
     var renderedContent = this.template({ list: this.model });
@@ -22,23 +26,28 @@ Trello.Views.CardsShowFullView = Backbone.CompositeView.extend({
     return this;
   },
   
-
-    addCard: function (card) {
-      var cardsShowOne =
-        new Trello.Views.CardsShowOne({ model: card });
-      this.addSubview(".cards", cardsShowOne);
-    },
-
-    removeCard: function (card) {
-      var subview = _.find(
-        this.subviews(".cards"),
-        function (subview) {
-          return subview.model === card;
-        }
-      );
-
-      this.removeSubview(".cards", subview);
+  deleteCard: function(event) {
+    event.preventDefault();
+    this.model.destroy();
   },
+  //
+  //
+  //   addCard: function (card) {
+  //     var cardsShowOne =
+  //       new Trello.Views.CardsShowOne({ model: card });
+  //     this.addSubview(".cards", cardsShowOne);
+  //   },
+  //
+  //   removeCard: function (card) {
+  //     var subview = _.find(
+  //       this.subviews(".cards"),
+  //       function (subview) {
+  //         return subview.model === card;
+  //       }
+  //     );
+  //
+  //     this.removeSubview(".cards", subview);
+  // },
 
   
 });
